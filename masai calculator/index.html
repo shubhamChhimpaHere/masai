@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masai Calculator</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .root {
+            /* min-width: 320px; */
+            width: 320px;
+            /* height: 400px; */
+            /* border: 2px solid black; */
+        }
+
+        .root>h1 {
+            /* border: 1px solid black; */
+            text-align: center;
+            padding-block: 10px;
+            margin-bottom: 40px;
+        }
+
+        .main {
+            /* width: 80%; */
+            border: 1px solid black;
+            background-color: #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        input {
+            grid-column-start: 1;
+            grid-column-end: 4;
+            border-radius: 8px;
+
+
+        }
+
+
+        input,
+        button,
+        span {
+            padding: 20px;
+            font-size: 20px;
+            border-radius: 8px;
+            border: 1px;
+            box-shadow: 1px 2px black;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: white;
+
+        }
+
+        .black {
+            color: white;
+            background-color: black;
+        }
+
+        .red {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="root">
+        <h1>Masai Calculator</h1>
+        <div class="main">
+
+            <input type="text" readonly>
+            <span></span>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button class="black">+</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button class="black">-</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button class="black">x</button>
+            <button class="red">C</button>
+            <button>0</button>
+            <button class="black">=</button>
+            <button class="black">/</button>
+
+        </div>
+    </div>
+
+
+
+
+    </div>
+
+    <script>
+        let num1 = "";
+        let num2 = "";
+        let span = document.querySelector('span');
+        let input = document.querySelector('input');
+        let btn = document.querySelectorAll('button');
+        let flag = false;
+        let count = false;
+        let oprator = '';
+        let lastoprator = null;
+
+        btn.forEach((btnval) => {
+            btnval.addEventListener('click', () => {
+
+                if (btnval.innerText == 'C') {
+                    num1 = '';
+                    num2 = '';
+                    count = false;
+                    input.value = '';
+
+                }
+
+                else if (btnval.innerText == '+' || btnval.innerText == '-' || btnval.innerText == 'x' || btnval.innerText == '/' || btnval.innerText == '=') {
+                    oprator = btnval.innerText;
+
+                    if (lastoprator == '') {
+                        lastoprator = oprator;
+                    }
+
+                    if (count) {
+
+
+                        switch (lastoprator) {
+                            case '+': num1 = Number(num1) + Number(num2);
+                                break;
+                            case '-': num1 = Number(num1) - Number(num2);
+                                break;
+                            case 'x':
+                                if (num2 == '') {
+                                    num2 = 1;
+                                }
+                                num1 = Number(num1) * Number(num2);
+                                break;
+                            case '/':
+                                if (num2 == '') {
+                                    num2 = 1;
+                                }
+                                num1 = Number(num1) / Number(num2);
+                                break;
+
+                        }
+
+                        input.value = num1;
+                        num2 = '';
+                    }
+                    //    input.value += btnval.innerText;
+                    count = true;
+                    if (oprator != '=') {
+                        lastoprator = oprator;
+                    }
+                    else {
+                        lastoprator = '';
+                    }
+                    span.innerText = lastoprator;
+
+                }
+                else {
+                    if (!count) {
+                        num1 += btnval.innerText;
+                        input.value = num1;
+
+                    }
+                    else {
+                        num2 += btnval.innerText;
+                        input.value = num2;
+                    }
+
+
+                }
+
+
+
+
+
+
+
+
+
+                // if(btnval.innerText == '=') {
+                //     input.value = Number(num1) + Number(num2);
+                // }
+
+                // if(flag) {
+                //     input.value = '';
+                //     flag = false;
+                // }
+                // input.value += btnval.innerText;
+
+                // if(btnval.innerText == '+') {
+                //     num1 = input.value;
+                //     flag = true;
+                // }
+
+            })
+        })
+    </script>
+</body>
+
+</html>
