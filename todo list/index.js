@@ -17,10 +17,13 @@ form.addEventListener('submit', (e) => {
     priority.value = '';
 
     arr.forEach((ele) => {
+        let color = ele.priority == 'High' ? 'red' : 'green';
         tbody.innerHTML += `
+        <tr style = "background-color : ${color}">
         <td> ${ele.task} </td>
         <td> ${ele.priority} </td>
         <td> </td>
+        </tr>
         `;
 
     })
