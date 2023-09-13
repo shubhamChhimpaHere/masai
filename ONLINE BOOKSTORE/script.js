@@ -60,11 +60,11 @@ form.addEventListener('submit', (e) => {
 
 })
 
-show.addEventListener('click', getBookInfo);
+show.addEventListener('click', shows);
 
 
 
-function getBookInfo() {
+function shows() {
 
     let bottomSection = document.querySelector('.bottom-section');
 
