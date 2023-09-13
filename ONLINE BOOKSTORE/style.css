@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+
+:root {
+    --first: rgb(43, 183, 171);
+    --second: rgba(43, 183, 171, 0.297);
+}
+
+
+.root {
+    width: 98vw;
+    height: 100vh;
+    margin: auto;
+}
+
+.root > h1 {
+    background-color: var(--first);
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+.main {
+    /* border: 3px solid black; */
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2% 5%;
+    width: 100%;
+    /* justify-content: center; */
+}
+
+.main .left {
+   
+    width: 320px;
+    height: 550px;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* padding: 2% 5%; */
+
+}
+
+
+
+
+.main .left * {
+    width: 100%;
+    padding: 0px 12px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+label {
+    color: rgba(0, 0, 0, 0.543);
+    font-size: 15px !important;
+    
+}
+
+.main .left input {
+    border: none;
+    border-bottom: 2px solid var(--first);
+}
+input:focus {
+    outline: none;
+}
+
+
+.main .left input[type = submit] {
+    border: none;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: var(--first);
+    color: white;
+    cursor: pointer;
+}
+
+#show {
+    border: none;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: var(--first);
+    color: white;
+    cursor: pointer;
+}
+
+.main .right {
+    width: calc(100% - 320px);
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2% 5%;
+}
+.main .right *{
+    font-size: 20px;
+    text-transform: capitalize;
+}
+.top-section {
+    width: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 5%;
+    background-color: var(--first);
+    color: white;
+
+   
+}
+.bottom-section {
+    width: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* padding: 5%; */
+    
+}
+.sections {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+    padding: 15px 5%;
+    position: relative;
+}
+.sections:nth-child(odd) {
+    background-color: var(--second);
+}
+
+.fontlight {
+    color: rgba(0, 0, 0, 0.393);
+    font-size: 16px !important;
+}
