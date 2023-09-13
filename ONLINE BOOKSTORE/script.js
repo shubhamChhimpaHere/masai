@@ -18,6 +18,16 @@ function Author(name, birthyear, nationality) {
     this.nationality = nationality;
 }
 
+
+Book.prototype.getBookInfo = function() {
+    console.log(this.title)
+    console.log(this.auther.name)
+    console.log(this.genre)
+    console.log(this.price)
+}
+
+
+
 // let auther1  = new Author('shubham', 2000, 'India');
 // let book1 = new Book('my book', auther1, 'anything', 150)
 
@@ -46,6 +56,7 @@ form.addEventListener('submit', (e) => {
 
    form.reset();
    show.innerText = 'Show';
+  
 
 })
 
@@ -59,7 +70,7 @@ function getBookInfo() {
 
     if(show.innerText == 'Show') {
 
-        console.log('working')
+        
         bottomSection.innerHTML = ``;
     
         arr.forEach((ele) => {
